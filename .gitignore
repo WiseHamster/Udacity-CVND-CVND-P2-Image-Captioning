@@ -4,3 +4,6 @@ data/
 __pycache__/
 annotations/
 .DS_Store
+.vscode
+vocab.pkl
+training_log.txt
