@@ -16,8 +16,12 @@ class EncoderCNN(nn.Module):
         # Create embedding from a fully connected layer
         self.embed = nn.Linear(resnet.fc.in_features, embed_size)
 
-        # initilize weights http://localhost:8888/?token=0d885c6785f542bf189b1b7cad9c268c55c735be24126b8e
-ages)
+        # initilize weights
+        torch.nn.init.xavier_normal_(self.embed.weight)
+        self.embed.bias.data.fill_(0.0)
+
+    def forward(self, images):
+        features = self.resnet(images)
         features = features.view(features.size(0), -1)
         features = self.embed(features)
 
